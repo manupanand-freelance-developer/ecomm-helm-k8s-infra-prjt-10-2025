@@ -11,4 +11,4 @@ spec:
       image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{.Values.name}}
       # environemnt variables for roboshop
       env:
-        {{ include "toYaml" .Values.env | indent 8 }} #helm function indent 8 space
+        {{- toYaml .Values.env | nindent 8 }} #helm function indent 8 space
