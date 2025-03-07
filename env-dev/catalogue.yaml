@@ -1,0 +1,6 @@
+name: catalogue
+env:
+  - name: MONGO_URL 
+    value: "mongodb://mongo.dev.manupanand.online:27017/catalogue" # within kubernetes
+  - name: MONGO 
+    value: "true"

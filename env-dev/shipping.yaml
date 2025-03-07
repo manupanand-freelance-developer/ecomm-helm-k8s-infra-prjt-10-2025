@@ -1,0 +1,6 @@
+name: shipping
+env:
+  - name: CART_ENDPOINT
+    value: "cart:8080" # within kubernetes
+  - name: DB_HOST
+    value: "mysql.dev.manupanand.online"

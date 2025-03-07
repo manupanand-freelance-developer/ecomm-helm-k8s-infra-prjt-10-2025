@@ -1,0 +1,2 @@
+serviceType: ClusterIP #input is common
+port: 8080
