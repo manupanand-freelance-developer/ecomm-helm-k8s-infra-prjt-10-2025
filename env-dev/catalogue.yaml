@@ -5,3 +5,15 @@ env:
     value: "mongodb://mongo.dev.manupanand.online:27017/catalogue" # within kubernetes
   - name: MONGO 
     value: "true"
+schema: 
+  enabled: true
+  containers:
+    master-data: master-data.js
+  env: 
+    - name:  DB_TYPE
+      value: "mongo"
+    - name: APP_GIT_URL
+      value: "https://github.com/roboshop-devops-project-v3/catalogue"
+    - name: DB_HOST
+      value: "mongo.dev.manupanand.online"
+   

@@ -1,0 +1,23 @@
+{{- if .Values.schema.enabled -}} # if values.schema is true
+apiVersion: batch/v1
+kind: Job 
+metadata: 
+  name: {{.Values.name}}-schema 
+  namespace: roboshop 
+  labels: 
+    appName: {{ .Values.name }}
+spec: 
+  template: 
+    spec: 
+      containers: 
+          {{- range $k,$v := .Values.schema.containers}}
+          - name: {{ $k }}
+            image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+            env: 
+               {{- toYaml $.Values.schema.env | nintend 10 }}
+               - name: SCHEMA_FILE
+                 value: db/{{ $v }}
+           {{- end -}}
+      restartPolicy: Never
+  backoffLimit: 0
+  {{- end -}}
