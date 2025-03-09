@@ -7,3 +7,8 @@ helm upgrade -i  catalogue ./ -f env-dev/catalogue.yaml
 
 
 helm upgrade -i  catalogue ./ -f env-dev/catalogue.yaml --dry-run # for testing code
+
+helm uninstall shipping
+
+# hooks-a t what time to provide
+# before intall ex shipping a schema job should create

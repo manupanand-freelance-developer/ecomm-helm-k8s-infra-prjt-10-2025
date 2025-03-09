@@ -16,4 +16,5 @@ schema:
       value: "https://github.com/roboshop-devops-project-v3/catalogue"
     - name: DB_HOST
       value: "mongo.dev.manupanand.online"
-   
+    - name: SCHEMA_FILES
+      value: "master-data"

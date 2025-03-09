@@ -10,14 +10,11 @@ spec:
   template: 
     spec: 
       containers: 
-          {{- range $k,$v := .Values.schema.containers}}
-          - name: {{ $k }}
-            image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          - name: schema-load
+            image: docker.io/manupanand/schema:1.0
+            imagePullPolicy: Always
             env: 
-               {{- toYaml $.Values.schema.env | nintend 10 }}
-               - name: SCHEMA_FILE
-                 value: db/{{ $v }}
-           {{- end -}}
+               {{- toYaml .Values.schema.env | nintend 12 }}
       restartPolicy: Never
   backoffLimit: 0
   {{- end -}}
