@@ -1,14 +1,14 @@
 apiVersion: v1
-kind: Pod
+kind: Pod 
 metadata: 
-  name: {{.Values.name}}
-  namespace: roboshop
-  labels:
-   appName: {{.Values.name}}
+  name: {{ .Values.name }}
+  namespace: roboshop 
+  labels: 
+    appName: {{ .Values.name }}
 spec: 
-  containers:
-    - name: {{.Values.name}}
-      image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{.Values.name}}
-      # environemnt variables for roboshop
+  containers:  
+    - name: {{ .Values.name }}
+      image: docker.io/manupanand/{{ .Values.name }}:latest 
       env: 
-        {{- toYaml .Values.env | nindent 8 }}  #helm function indent 8 space
+        {{- toYaml .Values.env | nindent 8 }}
+ 

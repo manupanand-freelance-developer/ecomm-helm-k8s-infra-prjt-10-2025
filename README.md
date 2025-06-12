@@ -62,7 +62,12 @@ cd ecomm-helm-k8s-infra-prjt-10-2025
 
 2. Deploy the Helm chart:
 ```
-helm install robot-shop ./helm-chart
+# installing catalogue
+helm install ecomm-catalogue ./ecomm-helm-k8s-infra-prjt-10-2025 -f ecomm-helm-k8s-infra-prjt-10-2025/env-dev/catalogue.yaml
+# inside repo 
+helm install ecomm-catalogue ./ -f /env-dev/catalogue.yaml
+helm upgrade -i ecomm-catalogue ./ -f /env-dev/catalogue.yaml #upgrade if already installed/else install -i
+helm upgrade -i ecomm-catalogue ./ -f /env-dev/catalogue.yaml --dry-run # for test code yaml
 
 ```
 

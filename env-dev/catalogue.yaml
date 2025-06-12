@@ -1,20 +1,21 @@
-name: catalogue
+name: ecomm-catalogue
+sport: 8080
 port: 8080
-env:
+env: 
   - name: MONGO_URL 
-    value: "mongodb://mongo.dev.manupanand.online:27017/catalogue" # within kubernetes
+    value: "mongodb://mongo.subnet_name_c.manupanand.online:27017/catalogue"
   - name: MONGO 
     value: "true"
 schema: 
   enabled: true
-  containers:
-    master-data: master-data.js
-  env: 
-    - name:  DB_TYPE
+  containers: 
+    - schema
+  env:  #env for schema
+    - name: DB_TYPE
       value: "mongo"
-    - name: APP_GIT_URL
-      value: "https://github.com/roboshop-devops-project-v3/catalogue"
-    - name: DB_HOST
-      value: "mongo.dev.manupanand.online"
-    - name: SCHEMA_FILES
-      value: "master-data"
+    - name: APP_GIT_URL 
+      value: "https://github.com/manupanand-freelance-developer/schema-load"
+    - name: DB_HOST 
+      value: "mongo.subnet_name_c.manupanand.online"
+    - name: REPO_DIR
+      value: "schema-load"

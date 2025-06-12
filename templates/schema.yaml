@@ -1,20 +1,25 @@
-{{- if .Values.schema.enabled -}} # if values.schema is true
+# use condition because only need for cataloguge and shipping
+{{- if .Values.schema.enabled -}} # if values enabed-schema is true then dp # main file enabe it false always-values.yaml
 apiVersion: batch/v1
 kind: Job 
 metadata: 
-  name: {{.Values.name}}-schema 
+  name: {{ .Values.name }}-schema
   namespace: roboshop 
   labels: 
-    appName: {{ .Values.name }}
-spec: 
+    appName: {{ .Values.name }}-schema
+spec:  
   template: 
-    spec: 
-      containers: 
-          - name: schema-load
-            image: docker.io/manupanand/schema:1.0
-            imagePullPolicy: Always
+    spec:  
+      containers: # loop/rnage over each contianers
+        {{- range .Values.schema.containers }}
+            - name: {{ $.Values.name }}-schema
+            image: docker.io/manupanand/{{ .Values.schema.containers }}:latest 
             env: 
-               {{- toYaml .Values.schema.env | nintend 12 }}
-      restartPolicy: Never
+                {{- toYaml  $.Values.schema.env | nindent 10 -}} # to acces the values in loop use $
+        {{- end }}
+      restartPolicy: Never 
   backoffLimit: 0
-  {{- end -}}
+{{- end -}}
+# suppose if we have three seperate containers for one-application -shipping need seperate container
+#either edit run script to do it one in one container or 
+# use loop/range-for each in helm chart

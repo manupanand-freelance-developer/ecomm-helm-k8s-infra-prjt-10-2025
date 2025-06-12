@@ -1,27 +1,28 @@
-name: shipping
+name: ecomm-shipping 
+sport: 8080
 port: 8080
-env:
-  - name: CART_ENDPOINT
-    value: "cart:8080" # within kubernetes
-  - name: DB_HOST
-    value: "mysql.dev.manupanand.online"
-
+env: 
+ - name: CART_ENDPOINT 
+   value: "ecomm-cart:8080"
+ - name: DB_HOST 
+   value: "mysql.subnet_name_c.manupanand.online" 
 schema: 
-  enabled: true 
+  enabled: true
   containers: 
-     master-data: master-data.sql
-     schema: schema.sql 
-     app-user: app-user.sql 
+    - schema
   env: 
     - name: DB_TYPE
-      value: mysql 
+      value: "mysql"
     - name: APP_GIT_URL 
-      value: "https://github.com/roboshop-devops-project-v3/shipping"
+      value: "https://github.com/manupanand-freelance-developer/schema-load"
+    - name: REPO_DIR
+      value: "schema-load"
     - name: DB_HOST
-      value: "mysql.dev.manupanand.online"
-    - name: DB_USER 
-      value: root 
-    - name: DB_PASS 
-      value: RoboShop@1
-    - name: SCHEMA_FILES
-      value: "app-user schema master-data" # on order we have to execute
+      value: "mysql.subnet_name_c.manupanand.online"  # Use environment variable or fallback to localhost
+    - name: DB_USER
+      value: "shipping"
+    - name: DB_PASS
+      value: "Roboshop@1"
+# suppose if we have three seperate containers for one-application -shipping need seperate container
+#either edit run script to do it one in one container or 
+# use loop/range-for each in helm chart

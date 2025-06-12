@@ -1,3 +1,3 @@
-serviceType: ClusterIP #input is common
-schema:
-  enabled: false
+serviceType: ClusterIP
+schema: 
+ enabled: false
