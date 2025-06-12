@@ -12,10 +12,10 @@ spec:
     spec:  
       containers: # loop/rnage over each contianers
         {{- range .Values.schema.containers }}
-            - name: {{ $.Values.name }}-{{ . }}
-            image: docker.io/manupanand/{{ . }}:latest # {{ . }} name per container
-            env: 
-                {{- toYaml  $.Values.schema.env | nindent 12 }} # to acces the values in loop use $
+        - name: {{ $.Values.name }}-{{ . }}
+        image: docker.io/manupanand/{{ . }}:latest # {{ . }} name per container
+        env: 
+          {{- toYaml  $.Values.schema.env | nindent 12 }} # to acces the values in loop use $
         {{- end }}
       restartPolicy: Never 
   backoffLimit: 0
