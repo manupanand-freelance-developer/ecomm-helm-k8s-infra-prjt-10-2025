@@ -8,8 +8,10 @@ metadata:
   labels: 
     appName: {{ .Values.name }}-schema
 spec:  
+  backoffLimit: 0
   template: 
-    spec:  
+    spec: 
+      restartPolicy: Never  
       containers: # loop/rnage over each contianers
         {{- range .Values.schema.containers }}
           - name: {{ $.Values.name }}-{{ . }}
@@ -17,8 +19,6 @@ spec:
             env: 
             {{- toYaml  $.Values.schema.env | nindent 12 }} # to acces the values in loop use $
         {{- end }}
-      restartPolicy: Never 
-  backoffLimit: {{ .Values.schema.backoffLimit | default 0 | int }}
 {{- end -}}
 # suppose if we have three seperate containers for one-application -shipping need seperate container
 #either edit run script to do it one in one container or 
