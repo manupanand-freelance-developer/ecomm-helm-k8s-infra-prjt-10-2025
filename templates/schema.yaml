@@ -18,8 +18,7 @@ spec:
             {{- toYaml  $.Values.schema.env | nindent 12 }} # to acces the values in loop use $
         {{- end }}
       restartPolicy: Never 
-      {{- printf "# DEBUG: backoffLimit = %v (%T)" .Values.schema.backoffLimit .Values.schema.backoffLimit | indent 4 }}
-  backoffLimit: 0
+  backoffLimit: {{ .Values.schema.backoffLimit | default 0 | int }}
 {{- end -}}
 # suppose if we have three seperate containers for one-application -shipping need seperate container
 #either edit run script to do it one in one container or 
