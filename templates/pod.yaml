@@ -9,6 +9,7 @@ spec:
   containers:  
     - name: {{ .Values.name }}
       image: docker.io/manupanand/{{ .Values.name }}:latest 
-      env: 
-        {{- toYaml .Values.env | nindent 8 }}
+      envFrom:
+        - secretRef:  
+            name: {{ .Values.name }}-secret
  
