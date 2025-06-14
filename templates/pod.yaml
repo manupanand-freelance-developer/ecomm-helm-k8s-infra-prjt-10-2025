@@ -11,5 +11,5 @@ spec:
       image: docker.io/manupanand/{{ .Values.name }}:latest 
       envFrom:
         - secretRef:  
-            name: {{ .Values.name }}-secret
+            name: {{ .Values.name }}
  

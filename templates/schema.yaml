@@ -19,7 +19,7 @@ spec:
             imagePullPolicy: Always
             envFrom: 
               - secretRef: 
-                   name: {{ $.Values.name }}-secret # to acces the values in loop use $
+                   name: {{ $.Values.name }} # to acces the values in loop use $
         {{- end }}
 {{- end -}}
 # suppose if we have three seperate containers for one-application -shipping need seperate container
