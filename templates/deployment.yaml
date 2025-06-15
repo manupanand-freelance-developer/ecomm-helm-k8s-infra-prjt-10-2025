@@ -24,7 +24,7 @@ spec:
                  - secretRef:  
                      name: {{ .Values.name }}
               resources: 
-                 {{- toYaml .Values.resources | nindent 6 }}
+                 {{- toYaml .Values.resources | nindent 8 }}
 ---
 
  
