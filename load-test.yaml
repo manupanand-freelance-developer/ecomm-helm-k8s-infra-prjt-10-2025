@@ -24,7 +24,7 @@ spec:
               - name: SUDDEN_USER_DOWN
                 value: "2"
               - name: BASE_URL
-                value: "http://ecomm-frontend"
+                value: "http://a8d88ee8bf566431eafe8d8f0e09d037-1019214439.ap-south-2.elb.amazonaws.com"
               - name: USERNAME
                 value: user
               - name: PASSWORD
