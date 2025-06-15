@@ -1,28 +1,23 @@
 name: ecomm-shipping 
 sport: 8080
 port: 8080
-env: 
- - name: CART_ENDPOINT 
-   value: "ecomm-cart:8080"
- - name: DB_HOST 
-   value: "mysql.subnet_name_c.manupanand.online" 
+cport: 8080 #containerport
+
+replicas: 1
+
 schema: 
   enabled: true
   containers: 
     - schema
-  env: 
-    - name: DB_TYPE
-      value: "mysql"
-    - name: APP_GIT_URL 
-      value: "https://github.com/manupanand-freelance-developer/schema-load"
-    - name: REPO_DIR
-      value: "schema-load"
-    - name: DB_HOST
-      value: "mysql.subnet_name_c.manupanand.online"  # Use environment variable or fallback to localhost
-    - name: DB_USER
-      value: "shipping"
-    - name: DB_PASS
-      value: "Roboshop@1"
+
+# resources: 
+#    requests: 
+#       memory: "1500Mi" 
+#       cpu: "500m" 
+#    limits: 
+#       memory: "2048Mi"
+#       cpu: "750m"
+
 # suppose if we have three seperate containers for one-application -shipping need seperate container
 #either edit run script to do it one in one container or 
 # use loop/range-for each in helm chart

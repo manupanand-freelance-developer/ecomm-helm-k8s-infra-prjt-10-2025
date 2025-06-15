@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job 
+metadata: 
+  name: load-test
+  namespace: roboshop 
+  labels: 
+    appName: load-test
+spec:  
+  backoffLimit: 0
+  template: 
+    spec: 
+      restartPolicy: Never  
+      containers:
+          - name: load-test
+            image: docker.io/manupanand/ecomm-loadtest:latest
+            imagePullPolicy: Always
+            env: 
+              - name: MIN_USERS
+                value: "5"
+              - name: SPAWN_USERS
+                value: "100"
+              - name: TEST_DURATION
+                value: "3m"
+              - name: SUDDEN_USER_DOWN
+                value: "2"
+              - name: BASE_URL
+                value: "http://ecomm-frontend"
+              - name: USERNAME
+                value: user
+              - name: PASSWORD
+                value: password

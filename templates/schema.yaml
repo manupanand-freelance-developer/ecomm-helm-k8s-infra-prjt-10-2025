@@ -7,6 +7,9 @@ metadata:
   namespace: roboshop 
   labels: 
     appName: {{ .Values.name }}-schema
+  annotations: 
+    helm.sh/hook: pre-install #helm hook
+    helm.sh/hook-delete-policy: before-hook-creation #helm hook
 spec:  
   backoffLimit: 0
   template: 
