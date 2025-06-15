@@ -11,8 +11,8 @@ schema:
     - schema
 resources: 
    requests: 
-      memory: "128Mi" 
-      cpu: "30m" 
+      memory: "60Mi" 
+      cpu: "50m" 
    limits: 
-      memory: "256Mi"
-      cpu: "50m"
+      memory: "120Mi"
+      cpu: "100m"
