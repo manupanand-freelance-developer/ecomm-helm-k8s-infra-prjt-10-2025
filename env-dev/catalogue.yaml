@@ -9,10 +9,10 @@ schema:
   enabled: true
   containers: 
     - schema
-# resources: 
-#    requests: 
-#       memory: "128Mi" 
-#       cpu: "30m" 
-#    limits: 
-#       memory: "256Mi"
-#       cpu: "50m"
+resources: 
+   requests: 
+      memory: "128Mi" 
+      cpu: "30m" 
+   limits: 
+      memory: "256Mi"
+      cpu: "50m"

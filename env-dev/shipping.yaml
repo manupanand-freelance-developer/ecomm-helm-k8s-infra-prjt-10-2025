@@ -10,13 +10,13 @@ schema:
   containers: 
     - schema
 
-# resources: 
-#    requests: 
-#       memory: "1500Mi" 
-#       cpu: "500m" 
-#    limits: 
-#       memory: "2048Mi"
-#       cpu: "750m"
+resources: 
+   requests: 
+      memory: "1500Mi" 
+      cpu: "500m" 
+   limits: 
+      memory: "2048Mi"
+      cpu: "750m"
 
 # suppose if we have three seperate containers for one-application -shipping need seperate container
 #either edit run script to do it one in one container or 

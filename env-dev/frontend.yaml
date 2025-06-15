@@ -6,10 +6,10 @@ cport: 8080 #containerport
 serviceType: LoadBalancer
 replicas: 1
 
-# resources: 
-#    requests: 
-#       memory: "32Mi" 
-#       cpu: "20m" 
-#    limits: 
-#       memory: "64Mi"
-#       cpu: "50m"
+resources: 
+   requests: 
+      memory: "32Mi" 
+      cpu: "20m" 
+   limits: 
+      memory: "64Mi"
+      cpu: "50m"
